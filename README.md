@@ -1,4 +1,4 @@
-# fresh_ubuntu_server_setup
+# Fresh Ubuntu Server (20.04) Setup (using DigitalOcean)
 
 ## Set up server, ssh key, and firewall
 
@@ -212,4 +212,27 @@ python insert_assets.py
 11. Reload supervisor
 ```
 sudo supervisorctl reload
+```
+
+## Other
+
+How to stop/start supervisor?
+```
+sudo systemctl stop supervior
+sudo systemctl start supervior
+# check status
+sudo systemctl status supervior
+```
+
+How to run app and debugging?
+```
+# enable port 5000
+sudo ufw allow 5000
+sudo ufw enable
+sudo systemctl restart nginx
+
+# then run app
+cd ams
+export FLASK_APP=app.py
+flask run --host=0.0.0.0
 ```
